@@ -1,2 +1,2 @@
 # cp
-competitive programming
+this is where i will upload my solutions for competitive programming problems on some online judge sites
