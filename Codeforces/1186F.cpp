@@ -1,17 +1,15 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-const int N = 2e6 + 5;
 
-set<int> adj[N];
 vector<pair<int, int> > ans;
-bool vis[N];
 int n, m;
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
     freopen("input.txt","r",stdin);
     cin >> n >> m;
+    vector<set<int> > adj(n + 1);
     for(int i=0; i<m; i++){
         int u, v; cin >> u >> v;
         adj[u].insert(v);
@@ -23,6 +21,7 @@ int main(){
             adj[0].insert(i);
         }
     }
+    vector<bool> vis(n + 1, 0);
     for(int i=1; i<=n; i++){
         if (!vis[i]){
             vector<int> st;
