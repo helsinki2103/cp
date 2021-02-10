@@ -1,11 +1,6 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-const int N = 3e5 + 5;
-
-vector<int> adj[N];
-int inDeg[N], dp[N][26];
-
 
 int main(){
     ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
@@ -13,6 +8,8 @@ int main(){
     cin >> n >> m;
     string s; cin >> s;
     s = ' ' + s;
+    vector<vector<int> > adj(n + 1, vector<int>()), dp(n + 1, vector<int>(26, 0));
+    vector<int> inDeg(n + 1, 0);
     for(int i=0; i<m; i++){
         int u, v; cin >> u >> v;
         adj[u].push_back(v);
@@ -24,7 +21,6 @@ int main(){
         if (!inDeg[i]) q.push(i);
     }
     int cnt = 0;
-    memset(dp,0,sizeof dp);
     while (q.size()){
         int u = q.front();
         q.pop();
